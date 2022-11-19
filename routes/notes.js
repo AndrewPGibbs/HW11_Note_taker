@@ -36,8 +36,10 @@ app.delete('/:id',(req, res) =>{
     .then((response) => JSON.parse(response))
     .then((data) => {
         const newArray = data.filter((note) => note.id != Id);
+        writeToFile('./db/db.json', newArray);
+        res.json('Note has been DESTROYED');
 
-    })
-})
+    });
+});
 
 module.exports = app;
