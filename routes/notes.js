@@ -1,4 +1,5 @@
 const app = require('express').Router();
+const { response } = require('.');
 const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 
 
@@ -29,6 +30,14 @@ app.post('/', (req, res) => {
 
 //DELETE route
 
+app.delete('/:id',(req, res) =>{
+    const Id = req.params.id;
+    readFromFile('./db/db.json')
+    .then((response) => JSON.parse(response))
+    .then((data) => {
+        const newArray = data.filter((note) => note.id != Id);
 
+    })
+})
 
 module.exports = app;
