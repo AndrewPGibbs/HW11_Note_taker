@@ -11,3 +11,14 @@ Technologies and systems used for this project are as follows:
 #### Node.js
 #### HTML
 #### CSS
+-----
+
+## Usage
+![Screenshot](/assets/notetakerpic.png) <br>
+Visit the deployed link <a href='https://limitless-shelf-08303.herokuapp.com/notes'>here </a>
+
+Once on the page, click the + symbol to start a new note. All previous notes can be seen on the sidebar on the left hand side. Type out whatever you would like to save as a note and once you're finished click the floppy disc icon to save it to the sidebar on the left. If you find that you'd rather delete a note you can click the trashcan icon while the unwanted note is selected.
+
+-----
+## License
+Distributed with the MIT License. See [LICENSE](./LICENSE) for more information.
