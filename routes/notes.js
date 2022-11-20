@@ -1,21 +1,20 @@
 const app = require('express').Router();
-const { response } = require('.');
 const { readFromFile, readAndAppend, writeToFile } = require('../helpers/fsUtils');
 
 
 // GET route
-app.get('/', (req, res) =>{
-    readFromFile('/db/db.json')
+app.get('/', (req, res) => {
+    readFromFile('./db/db.json')
     .then((response) => res.json(JSON.parse(response)));
 });
 
 
 //POST route
 app.post('/', (req, res) => {
- const {title, text } = req.body;
+ const { title, text } = req.body;
  if (title && text) {
     let id = Date.now();
-    let createdNote = {
+    const createdNote = {
         title,
         text,
         id
@@ -31,11 +30,11 @@ app.post('/', (req, res) => {
 //DELETE route
 
 app.delete('/:id',(req, res) =>{
-    const Id = req.params.id;
+    const textId = req.params.id;
     readFromFile('./db/db.json')
     .then((response) => JSON.parse(response))
     .then((data) => {
-        const newArray = data.filter((note) => note.id != Id);
+        const newArray = data.filter((note) => note.id != textId);
         writeToFile('./db/db.json', newArray);
         res.json('Note has been DESTROYED');
 
